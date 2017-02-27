@@ -17,4 +17,6 @@ urlpatterns = [
     url(r'^logout-then-login/$',
         'django.contrib.auth.views.logout_then_login',
         name='logout_then_login'),
+
+    url(r'^$', views.dashboard, name='dashboard'),
 ]
