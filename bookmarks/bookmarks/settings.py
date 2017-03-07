@@ -110,3 +110,9 @@ LOGOUT_URL = reverse_lazy('logout')
 
 # Sending emails with Django - password reset
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Media files uploaded by user with the development server
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+

@@ -4,6 +4,9 @@ from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 from django.contrib.auth.decorators import login_required
 from .forms import LoginForm, UserRegistrationForm
+from .forms import UserEditForm, ProfileEditForm
+from .models import Profile
+
 
 @login_required
 def dashboard(request):
@@ -33,8 +36,9 @@ def user_login(request):
         form = LoginForm()
     return render(request, 'account/login.html', {'form': form})
 
-# View for UserRegistrationForm
+
 def register(request):
+    """View for UserRegistrationForm."""
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
@@ -45,6 +49,8 @@ def register(request):
                 user_form.cleaned_data['password'])
             # Save the User object
             new_user.save()
+            # Create the user profile
+            profile = Profile.objects.create(user=new_user)
             return render(request,
                           'account/register_done.html',
                           {'new_user': new_user})
@@ -54,3 +60,4 @@ def register(request):
     return render(request,
                   'account/register.html',
                   {'user_form': user_form})
+
