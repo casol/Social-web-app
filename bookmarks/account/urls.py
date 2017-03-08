@@ -50,4 +50,9 @@ urlpatterns = [
     url(r'^register/$',
         views.register,
         name='register'),
+
+    # edit profile url
+    url(r'^edit/$',
+        views.edit,
+        name='edit'),
 ]
