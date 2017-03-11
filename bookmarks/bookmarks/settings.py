@@ -118,8 +118,26 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Authentication backend for user log-in with username or e-mail
 AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.Facebook2OAuth2',
+    'social.backends.twitter.TwitterOAuth',
+    'social.backends.google.GoogleOAuth2',
+
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
 )
+
+# Social authentication with Facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '1662467653783143'  # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '8dc1a30d33cd4353bea5ca87cf1938bd'  # Facebook App Secret
+
+# Social authentication for Twitter(I don't have twitter  ;))
+SOCIAL_AUTH_TWITTER_KEY = 'XXX' # Twitter Consumer Key
+SOCIAL_AUTH_TWITTER_SECRET = 'XXX' # Twitter Consumer Secret
+
+# Social authentication with Google API
+# Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '204490064536-unci3g1147lp7abclt3eq2fabuu2320o.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '7BWI_ml_Lv1CC3h7wQGe-Kgn'  # Google Consumer Secret
+
 
 
