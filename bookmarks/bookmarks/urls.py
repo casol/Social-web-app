@@ -23,6 +23,8 @@ urlpatterns = [
 
     url(r'^account/', include('account.urls')),
 
+    url(r'^images/', include('images.urls', namespace='images')),
+
     # Python-social-auth module
     url('social-auth/',
         include('social.apps.django_app.urls', namespace='social')),

@@ -2,11 +2,16 @@ from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
 
+
+
 class Image(models.Model):
     """
     Image model for storing images bookmarked
     from different sites.
     """
+    # One-to-many
+    # User can post multiple images, but each image is posted
+    # by a single user.
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              related_name='images_created')
     title = models.CharField(max_length=200)
@@ -17,6 +22,11 @@ class Image(models.Model):
     description = models.TextField(blank=True)
     created = models.DateField(auto_now_add=True,
                                db_index=True)
+    # Many-to-many
+    # User might like multiple images and image can by like by multi users.
+    users_like = models.ManyToManyField(settings.AUTH_USER_MODEL,
+                                        related_name='images_liked',
+                                        blank=True)
 
     def __str__(self):
         return self.title
