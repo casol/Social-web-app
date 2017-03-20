@@ -56,7 +56,7 @@ def image_like(request):
                 image.users_like.add(request.user)
             else:
                 image.users_like.remove(request.user)
-            return JsonResponse({'status': 'ok'})
+            return JsonResponse({'status':'ok'})
         except:
             pass
-    return JsonResponse({'status': 'ko'})
+    return JsonResponse({'status':'ko'})
