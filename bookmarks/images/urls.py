@@ -14,4 +14,10 @@ urlpatterns = [
     url(r'^like/$',
         views.image_like,
         name='like'),
+
+    # AJAX pagination
+    url(r'^$',
+        views.image_list,
+        name='list'),
+
 ]
