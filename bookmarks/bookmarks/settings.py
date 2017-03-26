@@ -141,5 +141,10 @@ SOCIAL_AUTH_TWITTER_SECRET = 'XXX' # Twitter Consumer Secret
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '204490064536-unci3g1147lp7abclt3eq2fabuu2320o.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '7BWI_ml_Lv1CC3h7wQGe-Kgn'  # Google Consumer Secret
 
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail',
+                                         args=[u.username])
+}
+
 
 

@@ -17,7 +17,7 @@ class Profile(models.Model):
 
     def __str__(self):
         return 'Profile for user {}'.format(self.user.username)
-    
+
 
 class Contact(models.Model):
     """
@@ -25,7 +25,7 @@ class Contact(models.Model):
     intermediary model for storing additional information
     for the relationship between models.
     """
-    user_from = models.ForeignKey(User,related_name='rel_from_set')
+    user_from = models.ForeignKey(User, related_name='rel_from_set')
     user_to = models.ForeignKey(User, related_name='rel_to_set')
     created = models.DateTimeField(auto_now_add=True, db_index=True)
 
