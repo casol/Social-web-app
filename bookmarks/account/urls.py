@@ -56,7 +56,14 @@ urlpatterns = [
         views.edit,
         name='edit'),
 
+    # AJAX user follow
+    url(r'^users/follow/$',
+        views.user_follow,
+        name='user_follow'),
+
     # user profiles
     url(r'^users/$', views.user_list, name='user_list'),
     url(r'^users/(?P<username>[-\w]+)/$', views.user_detail, name='user_detail'),
+
+
 ]
