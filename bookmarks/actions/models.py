@@ -1,0 +1,17 @@
+from django.db import models
+from django.contrib.auth.models import User
+
+
+class Action(models.Model):
+    """
+    Action model will be used for storing user activities.
+    """
+    user = models.ForeignKey(User,
+                             related_name='actions',
+                             db_index=True)
+    verb = models.CharField(max_length=255)
+    created = models.DateTimeField(auto_now_add=True,
+                                   db_index=True)
+
+    class Meta:
+        ordering = ('created',)
