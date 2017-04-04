@@ -10,14 +10,25 @@ from common.decorators import ajax_required
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from actions.utils import create_action
+import redis
+from django.conf import settings
+
+
+# connect to redis
+r = redis.StrictRedis(host=settings.REDIS_HOST,
+                      port=settings.REDIS_PORT,
+                      db=settings.REDIS_DB)
 
 
 def image_detail(request, id, slug):
     image = get_object_or_404(Image, id=id, slug=slug)
+    # increment total image views by 1
+    total_views = r.incr('image:{}:views'.format(image.id))
     return render(request,
                   'images/image/detail.html',
                   {'section': 'images',
-                   'image': image})
+                   'image': image,
+                   'total_views': total_views})
 
 @login_required()
 def image_created(request):
