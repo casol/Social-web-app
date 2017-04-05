@@ -134,8 +134,8 @@ SOCIAL_AUTH_FACEBOOK_KEY = '1662467653783143'  # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '8dc1a30d33cd4353bea5ca87cf1938bd'  # Facebook App Secret
 
 # Social authentication for Twitter(I don't have twitter  ;))
-SOCIAL_AUTH_TWITTER_KEY = 'XXX' # Twitter Consumer Key
-SOCIAL_AUTH_TWITTER_SECRET = 'XXX' # Twitter Consumer Secret
+SOCIAL_AUTH_TWITTER_KEY = 'XXX'  # Twitter Consumer Key
+SOCIAL_AUTH_TWITTER_SECRET = 'XXX'  # Twitter Consumer Secret
 
 # Social authentication with Google API
 # Google Consumer Key
